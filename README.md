@@ -21,9 +21,9 @@ Within this structure, macroscopic physics emerges from a bounded, dimensionless
 
 The fundamental variable is the load tensor:
 
-\[
+$\[
 \Lambda_{\mu\nu}
-\]
+\]$
 
 which represents fractional consumption of local execution capacity.
 
@@ -78,14 +78,14 @@ It produces consistent, schema-constrained outputs across AI systems.
 
 | File | Description |
 |------|------------|
-| `CORE_AXIOMS.txt` | Minimal HPF constraints |
-| `SYMBOL_INDEX.txt` | Global symbol definitions |
-| `SUBSTRATE_LOAD.txt` | Load tensor definition |
-| `BRIDGE_AND_RG.txt` | Load → stress-energy mapping and renormalization |
-| `GEOMETRY_CLOSURE.txt` | Metric response and Einstein closure |
-| `GRAVITY_SECTORS.txt` | Scalar and vector gravitational sectors |
-| `SOLUTIONS.txt` | Static and rotating solutions |
-| `MDEA_ROUTING.txt` | Execution routing and legality rules |
+| `CORE_AXIOMS.md` | Minimal HPF constraints |
+| `SYMBOL_INDEX.md` | Global symbol definitions |
+| `SUBSTRATE_LOAD.md` | Load tensor definition |
+| `BRIDGE_AND_RG.md` | Load → stress-energy mapping and renormalization |
+| `GEOMETRY_CLOSURE.md` | Metric response and Einstein closure |
+| `GRAVITY_SECTORS.md` | Scalar and vector gravitational sectors |
+| `SOLUTIONS.md` | Static and rotating solutions |
+| `MDEA_ROUTING.md` | Execution routing and legality rules |
 | `REGISTRY_ENGINE_PRODUCTION.txt` | Deterministic theory registry |
 
 ---
