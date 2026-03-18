@@ -28,9 +28,9 @@ The framework is defined by the following axioms.
 
 All regions possess bounded update bandwidth. The local load variable is bounded:
 
-\[
-0 \le \Lambda \le 1.
-\]
+$\[
+0 \le \Lambda \le 1
+\]$
 
 The load variable represents fractional consumption of local update capacity. Saturation is therefore physically meaningful rather than a coordinate artifact.
 
@@ -50,9 +50,9 @@ Microscopic evolution is bijective.
 
 At the effective level the load tensor satisfies
 
-\[
-\nabla_\mu \Lambda^{\mu\nu}=0.
-\]
+$\[
+\nabla_\mu \Lambda^{\mu\nu}=0
+\]$
 
 These axioms are sovereign over all expert layers. Any object-level theory used inside HPF must be interpreted subject to them.
 
@@ -60,9 +60,9 @@ These axioms are sovereign over all expert layers. Any object-level theory used 
 
 The microscopic primitive is the substrate load tensor
 
-\[
-\Lambda^{(\mathrm{sub})}_{\mu\nu}(x).
-\]
+$\[
+\Lambda^{(\mathrm{sub})}_{\mu\nu}(x)
+\]$
 
 Its defining properties are:
 
@@ -74,15 +74,17 @@ Its defining properties are:
 
 The canonical component meanings are
 
-\[
+$\[
 \Lambda_{00}=\Lambda_0 \quad \text{temporal capacity depletion},
-\]
-\[
+\]$
+
+$\[
 \Lambda_{0i} \quad \text{directional load flow},
-\]
-\[
+\]$
+
+$\[
 \Lambda_{ij} \quad \text{anisotropic transport load}.
-\]
+\]$
 
 This tensor is fundamental to the framework. Geometry, stress-energy analogs, validity margins, and routing conditions are downstream constructions from it.
 
@@ -90,13 +92,13 @@ This tensor is fundamental to the framework. Geometry, stress-energy analogs, va
 
 The canonical geometry-viability quantity is
 
-\[
-G_{\mathrm{health}} = 1-\Lambda_0.
-\]
+$\[
+G_{\mathrm{health}} = 1-\Lambda_0
+\]$
 
 This is not the whole regulator. It is a key local viability observable extracted from substrate load. It measures the remaining margin before temporal execution capacity is exhausted.
 
-A reduction in \(G_{\mathrm{health}}\) indicates that geometry is becoming a less reliable effective description. A value near zero indicates that the substrate is approaching full local saturation.
+A reduction in $\(G_{\mathrm{health}}\)$ indicates that geometry is becoming a less reliable effective description. A value near zero indicates that the substrate is approaching full local saturation.
 
 ## 6. Legality versus validity
 
@@ -108,49 +110,60 @@ A state or evolution is **legal** if it satisfies substrate constraints. At mini
 
 The source bundle gives the local substrate legality functional in schematic form as
 
-\[
+$\[
 L_{\mathrm{QPRCA}}(x)=1 \iff F(x)<1,
-\]
+\]$
 
 where \(F(x)\) aggregates channel occupancy, blocked transport fraction, reservoir or relaxation burden, directional anisotropy, and reversible update closure. Failure occurs when
 
-\[
-F(x)\ge 1.
-\]
+$\[
+F(x)\ge 1
+\]$
 
-### 6.1.1 Candidate Microscopic Legality Functional \(F(x)\)  
+### 6.1.1 Candidate Microscopic Legality Functional $\(F(x)\)$  
 **[DERIVED / PROPOSED]**
 
-This section explores candidate realizations of the microscopic legality functional \(F(x)\) whose five-component schematic checklist is given above. \(F(x)\) belongs strictly to the substrate-expert level and is used by the MDEA routing kernel to enforce the HPF hard wall \(L_{\mathrm{QPRCA}}(x)=1\) iff \(F(x)<1\). No full derivation from QPRCA dynamics is claimed.
+This section explores candidate realizations of the microscopic legality functional $\(F(x)\)$ whose five-component schematic checklist is given above. $\(F(x)\)$ belongs strictly to the substrate-expert level and is used by the MDEA routing kernel to enforce the HPF hard wall $\(L_{\mathrm{QPRCA}}(x)=1\) iff \(F(x)<1\)$ . No full derivation from QPRCA dynamics is claimed.
 
 **A. Conservative candidate constitutive form (additive)**  
 
+$$
 \[
 F(x) = w_1 \cdot (	ext{channel occupancy}) + w_2 \cdot (	ext{blocked transport fraction}) + w_3 \cdot (	ext{reservoir / relaxation burden}) + w_4 \cdot (	ext{directional anisotropy}) + w_5 \cdot (	ext{reversible-update closure deficit}),
 \]
+$$
 
-with weights \(w_i \ge 0\) and \(\sum w_i = 1\). This is the direct linear realization of the five named channels.
+with weights $\(w_i \ge 0\)$ and $\(\sum w_i = 1\)$ . This is the direct linear realization of the five named channels.
 
 **B. Alternative non-additive form (dominant-channel max)**  
 
-\[
-F(x) = \maxigl( 	ext{channel occupancy},\; 	ext{blocked transport fraction},\; 	ext{reservoir burden},\; 	ext{directional anisotropy},\; 	ext{reversible-update closure deficit} igr).
-\]
+
+$$
+F(x) = \max \left( 
+  \text{channel occupancy}, \quad 
+  \text{blocked transport fraction}, \quad 
+  \text{reservoir burden}, \quad 
+  \text{directional anisotropy}, \quad 
+  \text{reversible-update closure deficit} 
+\right)
+$$
+
+
 
 This selects the single worst local burden at each site.
 
-**C. Properties any legal \(F(x)\) must satisfy**  
+**C. Properties any legal $\(F(x)\)$ must satisfy**  
 
-Any admissible \(F(x)\) must:  
+Any admissible $\(F(x)\)$ must:  
 - be non-negative and bounded above by a finite value,  
 - increase monotonically with each of the five channels,  
-- be compatible with the coarse-grained conservation structure \(
+- be compatible with the coarse-grained conservation structure $\(
 abla_\mu \Lambda^{\mu
-u}=0\),  
-- remain local (depend only on quantities at \(x\) or its immediate neighborhood),  
+u}=0\)$ ,  
+- remain local (depend only on quantities at $\(x\)$ or its immediate neighborhood),  
 - preserve the finite-capacity axiom (saturation at any single channel must be able to reach the legality boundary).
 
-**D. Conditions under which \(F(x) < 1\) remains a sensible hard wall**  
+**D. Conditions under which $\(F(x) < 1\)$ remains a sensible hard wall**  
 
 \(F(x) < 1\) is a sensible hard wall if:  
 - each individual channel is normalized to lie in \([0,1]\),  
