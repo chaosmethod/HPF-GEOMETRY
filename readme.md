@@ -88,20 +88,24 @@ These are not the same thing.
 MDEA governs expert selection through:
 
 
-X_{t+1} = F_{E^*}(X_t) ,
-\qquad
-E^* = \operatorname*{argmax}_E \big[ V_{\mathrm{HPF}}(E,X)\,L_{\mathrm{HPF}}(E,X) \big]
+
+$$
+\Lambda_c^{\text{(geom)}} = \inf \lbrace \Lambda_0^{\text{(geom)}} : \limsup_{T \to \infty} \chi_{\text{geom}} > 0 \rbrace
+$$
+
+
+
 
 
 Canonical hard gates from the consolidated framework:
 
-```latex
+$$
 G_{\mathrm{health}}<0.3 \;\Longrightarrow\; \text{route to QPRCA}
-```
+$$
 
-```latex
+$$
 \sigma_{\max}>1 \;\Longrightarrow\; \text{route to saturation regime}
-```
+$$
 
 Interpretation:
 
