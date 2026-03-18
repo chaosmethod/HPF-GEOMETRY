@@ -114,7 +114,7 @@ $\[
 L_{\mathrm{QPRCA}}(x)=1 \iff F(x)<1,
 \]$
 
-where \(F(x)\) aggregates channel occupancy, blocked transport fraction, reservoir or relaxation burden, directional anisotropy, and reversible update closure. Failure occurs when
+where $\(F(x)\)$ aggregates channel occupancy, blocked transport fraction, reservoir or relaxation burden, directional anisotropy, and reversible update closure. Failure occurs when
 
 $\[
 F(x)\ge 1
@@ -165,9 +165,9 @@ u}=0\)$ ,
 
 **D. Conditions under which $\(F(x) < 1\)$ remains a sensible hard wall**  
 
-\(F(x) < 1\) is a sensible hard wall if:  
-- each individual channel is normalized to lie in \([0,1]\),  
-- the aggregation rule never allows one channel to exceed 1 without forcing \(F \ge 1\),  
+$\(F(x) < 1\)$ is a sensible hard wall if:  
+- each individual channel is normalized to lie in $\([0,1]\)$ ,  
+- the aggregation rule never allows one channel to exceed 1 without forcing $\(F \ge 1\)$ ,  
 - the boundary is approached continuously from below as any channel saturates,  
 - the condition is compatible with reversibility and locality (no instantaneous global dependence).
 
@@ -178,9 +178,9 @@ The exact functional form, the values of any weights or saturation parameters, a
 
 This is a hard-wall criterion. The associated microscopic saturation boundary is exact:
 
-\[
+$\[
 \Lambda_c^{(\mathrm{sub})}=1.
-\]
+\]$
 
 That result follows directly from finite capacity. When local capacity is fully consumed, no further legal transport or redistribution is available.
 
@@ -203,9 +203,9 @@ Two thresholds must be kept separate.
 
 The microscopic saturation wall is
 
-\[
-\Lambda_c^{(\mathrm{sub})}=1.
-\]
+$\[
+\Lambda_c^{(\mathrm{sub})}=1
+\]$
 
 This is fixed by axiom and is not phenomenological.
 
@@ -213,9 +213,9 @@ This is fixed by axiom and is not phenomenological.
 
 The geometry-validity threshold is lower:
 
-\[
-\Lambda_c^{(\mathrm{geom})}<1.
-\]
+$\[
+\Lambda_c^{(\mathrm{geom})}<1
+\]$
 
 Geometry remains valid only while the coarse-grained execution burden remains below this threshold. The exact numerical value of \(\Lambda_c^{(\mathrm{geom})}\) is not yet derived from first principles in the source set. Determining it is an open closure problem.
 
@@ -223,17 +223,19 @@ Geometry remains valid only while the coarse-grained execution burden remains be
 
 The expert-routing kernel is the Mixture-of-Domain-Experts Architecture (MDEA). It governs which expert evolves the state at the next step:
 
-\[
-X_{t+1}=F_{E^*}(X_t),
-\]
+$\[
+X_{t+1}=F_{E^*}(X_t) ,
+\]$
 
 with
 
-\[
-E^*=\operatorname*{argmax}_E \big[ V_{\mathrm{HPF}}(E,X)\,L_{\mathrm{HPF}}(E,X) \big].
-\]
+$$
+E^* = \arg\max_E \left[ V_{\text{HPF}}(E, X) \cdot L_{\text{HPF}}(E, X) \right]
+$$
 
-Here \(V_{\mathrm{HPF}}\) encodes expert validity and \(L_{\mathrm{HPF}}\) encodes legality compatibility under HPF constraints.
+
+
+Here $\(V_{\mathrm{HPF}}\)$ encodes expert validity and $\(L_{\mathrm{HPF}}\)$ encodes legality compatibility under HPF constraints.
 
 This law is regulatory, not object-level. MDEA is therefore not “one more theory.” It is the routing kernel that selects among theories or expert regimes.
 
@@ -241,13 +243,17 @@ This law is regulatory, not object-level. MDEA is therefore not “one more theo
 
 The consolidated source set specifies explicit hard gates:
 
+$$
 \[
 G_{\mathrm{health}}<0.3 \;\Longrightarrow\; \text{route to QPRCA},
 \]
+$$
 
+$$
 \[
 \sigma_{\max}>1 \;\Longrightarrow\; \text{route to saturation regime}.
 \]
+$$
 
 The first gate states that when geometry viability drops below the specified margin, the geometry expert is no longer trusted and execution must hand off to the deeper substrate-level expert. The second gate captures a saturation-driven routing boundary.
 
@@ -265,68 +271,83 @@ Combined with the legality-validity distinction developed above, the canonical i
 
 The source bundle also includes a soft routing weight based on load statistics. This is not the regulator itself and must not be mistaken for HPF. It is a coarse-grained weighting factor that modulates routing confidence near regime boundaries.
 
-Define a flux ratio or throughput ratio \(S_f\). The stability functional is
+Define a flux ratio or throughput ratio $\(S_f\)$ . The stability functional is
 
-\[
+$\[
 \xi(S_f)=P\big(\Lambda^{(b)}<\Lambda_c\big).
-\]
+\]$
 
 Assuming coarse-grained load statistics
 
+$$
 \[
 \Lambda^{(b)}\sim \mathcal N(\mu(S_f),\sigma^2),
 \qquad
 \mu(S_f)\approx \alpha S_f,
 \]
+$$
 
 one obtains
 
+$$
 \[
 \xi(S_f)=\Phi\!\left(\frac{\Lambda_c-\alpha S_f}{\sigma}\right)
 \approx \frac{1}{1+e^{k(S_f-\lambda)}}.
 \]
+$$
 
 Parameter identification gives
 
+$$
 \[
 \lambda = \frac{\Lambda_c}{\alpha},
 \qquad
 k=\frac{\alpha}{\sigma},
 \]
+$$
 
-or, more generally when \(\mu(S_f)\approx \alpha S_f+\beta\),
+or, more generally when $\(\mu(S_f)\approx \alpha S_f+\beta\)$ ,
 
+$$
 \[
 \lambda = \frac{\Lambda_c^{(\mathrm{geom})}-\beta}{\alpha}.
 \]
+$$
 
 This logistic form is therefore an emergent coarse-grained survival probability for geometry validity. It is not fundamental, not the regulator itself, and not a substitute for hard legality gates.
 
 ## 11. Coarse-graining and renormalization structure
 
-For block size \(b\), define block-averaged load
+For block size $\(b\)$, define block-averaged load
 
+$$
 \[
 \Lambda^{(b)}_{\mu\nu}(X)=\frac{1}{b^3}\sum_{x\in B_X}\Lambda^{(\mathrm{sub})}_{\mu\nu}(x).
 \]
+$$
 
 The geometry-level effective load is
 
+$$
 \[
 \Lambda^{(\mathrm{geom})}_{\mu\nu}=Z_\Lambda(b)\,\Lambda^{(b)}_{\mu\nu},
 \]
-
+$$
 with leading-order renormalization factor
 
+$$
 \[
 Z_\Lambda(b)\approx 1.
 \]
+$$
 
 Fluctuations are suppressed under coarse-graining as
 
+$$
 \[
 \delta\Lambda^{(b)}\sim b^{-3/2}\,\delta\Lambda.
 \]
+$$
 
 This supplies the basic route by which noisy microscopic load becomes a smooth geometry-compatible effective source.
 
@@ -336,11 +357,11 @@ QPRCA is the deeper substrate-level expert invoked when geometry fails. It is no
 
 The source bundle states the key completion program explicitly:
 
-1. construct \(F(x)\) from QPRCA dynamics,
-2. define \(\chi_{\mathrm{geom}}\) explicitly,
-3. measure \(\Lambda_c^{(\mathrm{geom})}\),
-4. derive \(\mu(S_f)\),
-5. eliminate residual phenomenological parameters such as \(\lambda\).
+1. construct $\(F(x)\)$ from QPRCA dynamics,
+2. define $\(\chi_{\mathrm{geom}}\)$ explicitly,
+3. measure $\(\Lambda_c^{(\mathrm{geom})}\)$ ,
+4. derive $\(\mu(S_f)\)$ ,
+5. eliminate residual phenomenological parameters such as $\(\lambda\)$ .
 
 This means the HPF–QPRCA relation is already conceptually fixed but not fully closed in first-principles executable detail.
 
@@ -360,22 +381,27 @@ The geometry expert is therefore subordinate to the regulator and must hand off 
 
 The source set introduces both substrate-level and geometry-level order parameters.
 
-At the substrate level, a failure order parameter \(\chi_{\mathrm{fail}}\) is defined schematically by
+At the substrate level, a failure order parameter $\(\chi_{\mathrm{fail}}\)$ is defined schematically by
 
+$$
 \[
 \chi_{\mathrm{fail}}=0 \text{ below threshold},
 \qquad
 \chi_{\mathrm{fail}}>0 \text{ above threshold},
 \]
+$$
 
 with candidate observables including persistent blocked transport fraction, non-decaying backlog, and reservoir debt accumulation. The exact microscopic critical point satisfies
 
+$$
 \[
 \Lambda_c^{(\mathrm{sub})}=\inf\{\Lambda: \chi_{\mathrm{fail}}>0\}=1.
 \]
+$$
 
 At the geometry level, an executable coarse-grained validity burden is introduced:
 
+$$
 \[
 \chi_{\mathrm{geom}}(X)=w_B\,\overline B(X)+w_A\,\overline A(X)+w_D\,\overline D(X),
 \qquad w_B,w_A,w_D>0,
@@ -384,44 +410,55 @@ with typically
 \[
 w_B+w_A+w_D=1.
 \]
+$$
 
 Here
 
+$$
 \[
 \overline B(X)=\frac{1}{|X|}\sum_{x\in X}\limsup_{T\to\infty}\frac{1}{T}\sum_{t=1}^T b(x,t)
 \]
+$$
 
 measures persistent blocked-transport fraction,
 
+$$
 \[
 \overline A(X)=\frac{1}{|X|}\sum_{x\in X}\frac{\sum_i |\Lambda_{0i}(x)|}{\Lambda_0(x)+\varepsilon},\qquad \varepsilon>0
 \]
+$$
 
 measures anisotropy burden, and
 
+$$
 \[
 \overline D(X)=\frac{1}{|X|}\sum_{x\in X}\limsup_{T\to\infty}\frac{1}{T}\sum_{t=1}^T \max\big(0,\Delta\Lambda_0(x,t)\big)
 \]
+$$
 
 measures depletion or debt persistence.
 
 Geometry is stable when
 
-\[
-\chi_{\mathrm{geom}}(X)\to 0,
-\]
+$\[
+\chi_{\mathrm{geom}}(X)\to 0
+\]$
 
 and invalid when the coarse-grained burden remains persistently nonzero:
 
-\[
+$\[
 \limsup_{T\to\infty}\chi_{\mathrm{geom}}(X)>0.
-\]
+\]$
 
 This gives the operational threshold definition
 
-\[
-\Lambda_c^{(\mathrm{geom})}=\inf\Big\{\Lambda_0^{(\mathrm{geom})}: \limsup_{T\to\infty}\chi_{\mathrm{geom}}>0\Big\}.
-\]
+
+$$
+\Lambda_c^{(\text{geom})} = \inf \left\lbrace \Lambda_0^{(\text{geom})} : \limsup_{T \to \infty} \chi_{\text{geom}} > 0 \right\rbrace
+$$
+
+
+
 
 This construction is stronger than a purely verbal notion of breakdown, but the source set still treats full closure as incomplete.
 
@@ -429,35 +466,19 @@ This construction is stronger than a purely verbal notion of breakdown, but the 
 
 The canonical notation fixed by the source bundle is:
 
-\[
-\Lambda_{\mu\nu} \text{ load tensor},\qquad
-\Lambda_0 \text{ temporal load component},
-\]
-\[
-\Xi \text{ load-to-energy-density bridge},\qquad
-T_{\mu\nu} \text{ effective stress-energy},
-\]
-\[
-a \text{ lattice spacing},\qquad
-\Delta t \text{ update interval},\qquad
-c=a/\Delta t,
-\]
-\[
-G_{\mathrm{health}}=1-\Lambda_0,
-\]
-\[
-\rho_{\mathrm{HPF}} \text{ effective load density},\qquad
-j_i^{\mathrm{HPF}} \text{ load current},\qquad
-\Pi_{ij}^{\mathrm{HPF}} \text{ stress tensor},
-\]
-\[
-\Phi_g,\; A_i^{(g)},\; E_g,\; B_g \text{ gravitational analog potentials and fields},
-\]
-\[
-\kappa \text{ Einstein normalization},\qquad
-b \text{ coarse-graining scale},\qquad
-Z_\Lambda(b) \text{ RG factor}.
-\]
+$$
+\begin{aligned}
+\Lambda_{\mu\nu} & \quad \text{Load tensor} \\
+\Lambda_0 & \quad \text{Temporal load component} \\
+\Xi & \quad \text{Load-to-energy-density bridge} \\
+T_{\mu\nu} & \quad \text{Effective stress-energy tensor} \\
+a, \Delta t, c & \quad \text{Lattice spacing, update interval, and } c = a/\Delta t \\
+G_{\text{health}} & \quad \text{Health metric, defined as } 1 - \Lambda_0 \\
+\rho_{\text{HPF}}, j_i^{\text{HPF}}, \Pi_{ij}^{\text{HPF}} & \quad \text{Effective load density, current, and stress tensor} \\
+\Phi_g, A_i^{(g)}, E_g, B_g & \quad \text{Gravitational analog potentials and fields} \\
+\kappa, b, Z_\Lambda(b) & \quad \text{Einstein normalization, coarse-graining scale, and RG factor}
+\end{aligned}
+$$
 
 ## 16. Solved, derived, and open components
 
@@ -467,11 +488,11 @@ The following are fixed by the consolidated source set:
 
 - HPF core axioms.
 - The existence and interpretation of the substrate load tensor.
-- The exact microscopic saturation wall \(\Lambda_c^{(\mathrm{sub})}=1\).
+- The exact microscopic saturation wall $\(\Lambda_c^{(\mathrm{sub})}=1\)$ .
 - The distinction between legality and validity.
 - The role of MDEA as routing kernel.
-- The hard routing gates \(G_{\mathrm{health}}<0.3\to \mathrm{QPRCA}\) and \(\sigma_{\max}>1\to\) saturation regime.
-- The non-fundamental status of the soft stability functional \(\xi(S_f)\).
+- The hard routing gates $\(G_{\mathrm{health}}<0.3\$ to $\mathrm{QPRCA}\)$ and $\(\sigma_{\max}>1\to\)$ saturation regime.
+- The non-fundamental status of the soft stability functional $\(\xi(S_f)\)$ .
 - The status of geometry as an emergent expert regime rather than the regulator.
 
 ### 16.2 Derived but still regime-limited
@@ -480,17 +501,17 @@ The following are already derived in useful form but are effective rather than f
 
 - coarse-grained load averaging,
 - fluctuation suppression under coarse-graining,
-- geometry-level burden diagnostic \(\chi_{\mathrm{geom}}\),
-- probabilistic stability functional \(\xi(S_f)\),
+- geometry-level burden diagnostic $\(\chi_{\mathrm{geom}}\)$ ,
+- probabilistic stability functional $\(\xi(S_f)\)$ ,
 - load-to-stress-energy bridge relations used by the geometry/gravity expert.
 
 ### 16.3 Open / programmatic
 
 The following remain open or only partially closed:
 
-- first-principles construction of \(F(x)\) directly from detailed QPRCA dynamics,
-- first-principles derivation or measurement program for \(\Lambda_c^{(\mathrm{geom})}\),
-- full derivation of \(\mu(S_f)\) from substrate statistics,
+- first-principles construction of $\(F(x)\)$ directly from detailed QPRCA dynamics,
+- first-principles derivation or measurement program for $\(\Lambda_c^{(\mathrm{geom})}\)$ ,
+- full derivation of $\(\mu(S_f)\)$ from substrate statistics,
 - complete elimination of phenomenological remnants in soft routing weights,
 - broader closure of all expert handoff boundaries from microscopic legality alone.
 
