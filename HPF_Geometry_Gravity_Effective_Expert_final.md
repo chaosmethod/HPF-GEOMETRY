@@ -376,13 +376,12 @@ $$
 This gives the operational threshold
 
 $$
-\Lambda_c^{\text{(geom)}} 
-   = \inf \left\{ 
-        \Lambda_0^{\text{(geom)}} : 
-        \limsup_{T \to \infty} \chi_{\text{geom}} > 0 
-     \right\}
+\Lambda_c^{\text{(geom)}} =
+\inf \{
+  \Lambda_0^{\text{(geom)}} :
+  \limsup_{T \to \infty} \chi_{\text{geom}} > 0
+\}
 $$
-
 
 
 ## 11. Routing implications and failure discipline
