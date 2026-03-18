@@ -64,15 +64,15 @@ HPF starts from bounded physical execution rather than unconstrained continuum o
 
 The primitive substrate object is the local bounded load tensor:
 
-```latex
-\Lambda^{(\mathrm{sub})}_{\mu\nu}(x)
-```
+
+ $\Lambda^{(\mathrm{sub})}_{\mu\nu}(x)$
+
 
 with the canonical temporal health variable:
 
-```latex
-G_{\mathrm{health}} = 1 - \Lambda_0
-```
+
+$G_{\mathrm{health}} = 1 - \Lambda_0$
+
 
 The central framework distinction is:
 
@@ -87,11 +87,11 @@ These are not the same thing.
 
 MDEA governs expert selection through:
 
-```latex
-X_{t+1}=F_{E^*}(X_t),
+
+X_{t+1} = F_{E^*}(X_t) ,
 \qquad
-E^*=\operatorname*{argmax}_E \big[ V_{\mathrm{HPF}}(E,X)\,L_{\mathrm{HPF}}(E,X) \big]
-```
+E^* = \operatorname*{argmax}_E \big[ V_{\mathrm{HPF}}(E,X)\,L_{\mathrm{HPF}}(E,X) \big]
+
 
 Canonical hard gates from the consolidated framework:
 
