@@ -8,36 +8,36 @@ The theoretical interpretation is that this model provides executable evidence f
 
 ## 2. Model definition
 
-Consider an \(N\times N\) square lattice. Each site carries two fields:
+Consider an $\(N\times N\)$ square lattice. Each site carries two fields:
 
-\[
+$\[
 \alpha_{i,j}(t)\in[0.01,1],
 \qquad
 D_{i,j}(t)\in[0,1].
-\]
+\]$
 
-Here \(\alpha\) is the local execution-health field and is interpreted as local geometry quality. The damage-memory or persistent depletion field is \(D\). Define local weakness by
+Here $\(\alpha\)$ is the local execution-health field and is interpreted as local geometry quality. The damage-memory or persistent depletion field is $\(D\)$ . Define local weakness by
 
-\[
+$\[
 w_{i,j}=1-\alpha_{i,j}.
-\]
+\]$
 
 A site is declared failed when
 
-\[
+$\[
 \alpha_{i,j}<\alpha_{\mathrm{fail}},
 \qquad
 \alpha_{\mathrm{fail}}=0.95.
-\]
+\]$
 
 ## 3. Compact source
 
-The lattice is driven by a compact circular source centered on the lattice midpoint. With source radius \(r\) and source amplitude \(A_{\mathrm{src}}\), the local source damage is
+The lattice is driven by a compact circular source centered on the lattice midpoint. With source radius $\(r\)$ and source amplitude $\(A_{\mathrm{src}}\)$ , the local source damage is
 
-\[
-\mathrm{damage}_{\mathrm{local}}(i,j)=
-\begin{cases}
-A_{\mathrm{src}}, & \sqrt{(i-N/2)^2+(j-N/2)^2}\le r,\\[4pt]
+$\[
+\mathrm{damage}_{\mathrm{local}}(i,j) =
+\begin{cases}$
+$A_{\mathrm{src}}$ , & $\sqrt{(i-N/2)^2+(j-N/2)^2}\le r$ , $\\[4pt]$
 0, & \text{otherwise}.
 \end{cases}
 \]
